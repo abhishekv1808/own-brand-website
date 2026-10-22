@@ -11,7 +11,7 @@ export function Pill({ children, pulse, tone = "light", className }: PillProps) 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-pill px-3.5 py-1.5 text-[13px] font-medium",
+        "inline-flex items-center gap-2 rounded-pill px-3.5 py-1.5 text-[13px] font-medium tracking-[-0.005em]",
         tone === "light" && "border border-line bg-white text-ink shadow-soft",
         tone === "dark" && "border border-night-line bg-white/5 text-white",
         tone === "accent" && "bg-accent-tint text-accent-deep",

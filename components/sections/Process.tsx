@@ -44,7 +44,7 @@ export function Process() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Eyebrow>{process.eyebrow}</Eyebrow>
-            <TwoToneHeading id="process-title" lines={[process.titleMuted, `**${process.titleDark}**`]} className="mt-4" />
+            <TwoToneHeading id="process-title" lines={[process.titleMuted, `**${process.titleDark}**`]} className="mt-5" />
           </div>
         </div>
 
@@ -77,13 +77,13 @@ export function Process() {
                   />
                 </span>
                 <div className="flex items-baseline gap-3">
-                  <span className={cn("font-mono text-[13px] transition-colors duration-500", on ? "text-accent" : "text-muted")}>
+                  <span className={cn("label-mono transition-colors duration-500", on ? "text-accent" : "text-muted")}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-mono text-xs tracking-[0.06em] text-muted uppercase">{step.duration}</span>
+                  <span className="label-mono text-muted">{step.duration}</span>
                 </div>
-                <h3 className="mt-3 text-[28px] font-medium tracking-[-0.04em] md:text-[32px]">{step.title}</h3>
-                <p className="mt-3 max-w-[300px] text-base leading-relaxed text-muted">{step.description}</p>
+                <h3 className="mt-3 text-heading font-medium">{step.title}</h3>
+                <p className="mt-3 max-w-[300px] text-body text-muted">{step.description}</p>
               </li>
             );
           })}
@@ -95,9 +95,9 @@ export function Process() {
               <Counter
                 value={s.value}
                 suffix={s.suffix}
-                className="block font-mono text-[clamp(3rem,2rem+3vw,4.5rem)] leading-none font-medium tracking-[-0.06em] text-ink"
+                className="block font-mono text-figure font-medium tracking-[-0.06em] text-ink tabular-nums"
               />
-              <p className="mt-4 text-[15px] text-muted">{s.label}</p>
+              <p className="mt-4 text-small text-muted">{s.label}</p>
             </div>
           ))}
         </Reveal>

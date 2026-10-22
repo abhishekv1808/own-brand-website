@@ -136,7 +136,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
-          className="mt-6 max-w-[640px] text-lede text-muted"
+          className="mt-6 max-w-[620px] text-lede text-balance text-muted"
         >
           {hero.sub}
         </motion.p>

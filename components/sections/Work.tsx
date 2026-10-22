@@ -24,7 +24,14 @@ function ProjectCard({ project }: { project: Project }) {
         href={work.more.href}
         aria-label={`${project.title}: ${project.description}`}
         className="group relative block rounded-card bg-white p-2.5 shadow-soft transition-shadow duration-500 hover:shadow-float md:cursor-none"
-        onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+        onPointerEnter={(e) => {
+          if (e.pointerType !== "mouse") return;
+          // Snap to the cursor first: entering by scrolling fires no pointermove.
+          const r = e.currentTarget.getBoundingClientRect();
+          x.jump(e.clientX - r.left);
+          y.jump(e.clientY - r.top);
+          setHover(true);
+        }}
         onPointerLeave={() => setHover(false)}
         onPointerMove={(e) => {
           const r = e.currentTarget.getBoundingClientRect();
@@ -43,10 +50,10 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="flex flex-col-reverse gap-2 px-3 pt-5 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <div className="min-w-0">
-            <h3 className="text-lg font-medium tracking-[0.01em] uppercase">{project.title}</h3>
-            <p className="mt-1 text-[15px] text-muted sm:truncate">{project.description}</p>
+            <h3 className="text-lg leading-tight font-medium tracking-[0.03em] uppercase">{project.title}</h3>
+            <p className="mt-1.5 text-small text-muted sm:truncate">{project.description}</p>
           </div>
-          <span className="shrink-0 font-mono text-xs tracking-[0.06em] text-muted uppercase sm:pt-1">{project.category}</span>
+          <span className="label-mono shrink-0 text-muted sm:pt-1">{project.category}</span>
         </div>
 
         <motion.span
@@ -73,7 +80,7 @@ export function Work() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Eyebrow>{work.eyebrow}</Eyebrow>
-            <TwoToneHeading id="work-title" lines={[`${work.titleMuted} **${work.titleDark}**`]} className="mt-4" />
+            <TwoToneHeading id="work-title" lines={[`${work.titleMuted} **${work.titleDark}**`]} className="mt-5" />
           </div>
           <p className="max-w-[380px] text-lede text-muted">{work.intro}</p>
         </div>
@@ -91,11 +98,9 @@ export function Work() {
                 aria-hidden
                 className="absolute -right-24 -bottom-24 size-80 rounded-full bg-accent opacity-40 blur-[90px] transition-opacity duration-700 group-hover:opacity-70"
               />
-              <span className="font-mono text-xs tracking-[0.08em] text-night-muted uppercase">{work.more.note}</span>
+              <span className="label-mono text-night-muted">{work.more.note}</span>
               <span className="flex items-end justify-between gap-6">
-                <span className="text-[clamp(2.5rem,1.8rem+2.5vw,4rem)] leading-none font-medium tracking-[-0.05em]">
-                  {work.more.label}
-                </span>
+                <span className="text-title leading-none font-medium">{work.more.label}</span>
                 <span className="grid size-16 shrink-0 place-items-center rounded-full bg-white text-ink transition-transform duration-500 ease-out-expo group-hover:rotate-45">
                   <ArrowUpRight size={24} />
                 </span>

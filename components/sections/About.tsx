@@ -48,10 +48,7 @@ export function About() {
         <h2 id="about-title" className="sr-only">
           About us
         </h2>
-        <p
-          ref={textRef}
-          className="mt-6 max-w-[1080px] text-[clamp(1.625rem,1.1rem+2vw,3rem)] leading-[1.22] font-medium tracking-[-0.035em] text-ink"
-        >
+        <p ref={textRef} className="mt-6 max-w-[1080px] text-statement font-medium text-ink">
           {about.paragraph.split(" ").map((word, i) => (
             <span key={i}>
               <span data-word>{word}</span>{" "}
@@ -61,7 +58,7 @@ export function About() {
       </div>
 
       <Reveal className="mt-20 md:mt-28">
-        <p className="container-x text-center font-mono text-xs tracking-[0.08em] text-muted uppercase">{about.logosLabel}</p>
+        <p className="container-x label-mono text-center text-muted">{about.logosLabel}</p>
         <Marquee className="mask-fade-x mt-8" duration={36} gap={72}>
           {about.logos.map((logo) => (
             <span

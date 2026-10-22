@@ -79,7 +79,7 @@ export function Nav() {
                   href={`#${item.id}`}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "relative block rounded-pill px-4 py-2.5 text-[14px] font-medium transition-colors duration-300",
+                    "relative block rounded-pill px-4 py-2.5 text-sm font-medium tracking-[-0.005em] transition-colors duration-300",
                     isActive ? "text-ink" : "text-white/75 hover:text-white",
                   )}
                 >
@@ -149,10 +149,10 @@ export function Nav() {
                   <a
                     href={`#${item.id}`}
                     onClick={(e) => goTo(e, `#${item.id}`)}
-                    className="flex items-baseline justify-between py-4 text-[40px] font-medium tracking-[-0.04em]"
+                    className="flex items-baseline justify-between py-4 text-title font-medium"
                   >
                     {item.label}
-                    <span className="font-mono text-xs text-night-muted">0{i + 1}</span>
+                    <span className="label-mono text-night-muted">0{i + 1}</span>
                   </a>
                 </motion.li>
               ))}

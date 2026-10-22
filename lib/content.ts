@@ -38,7 +38,7 @@ export const hero = {
   titleDark: "Building brands and products that",
   titleAccent: "perform.",
   titleMuted: "zone by zone.",
-  sub: "We're a small senior team in Bangalore designing and engineering websites, apps and identities for founders who care how the details feel, and what they convert.",
+  sub: "We’re a small senior team in Bangalore designing and engineering websites, apps and identities for founders who care how the details feel, and what they convert.",
   secondaryCta: { label: "See our work", href: "#work" },
   showreel: {
     // Drop a reel in /public (e.g. "/showreel.mp4") and set src; until then the poster shows.
@@ -203,7 +203,7 @@ export const services = {
     {
       name: "Mobile Apps",
       description:
-        "iOS and Android apps in React Native, shipped with analytics, crash reporting and a release process that doesn't break.",
+        "iOS and Android apps in React Native, shipped with analytics, crash reporting and a release process that doesn’t break.",
       image: "/work/kora.webp",
       tags: ["React Native", "iOS", "Android"],
     },
@@ -223,7 +223,7 @@ export const why = {
   eyebrow: "Why ITBIZone",
   titleMuted: "Less agency,",
   titleDark: "more partner.",
-  body: "The way we work is built around one idea: you should always know what's happening, who's doing it, and why.",
+  body: "The way we work is built around one idea: you should always know what’s happening, who’s doing it, and why.",
   rows: [
     {
       icon: "user",
@@ -302,7 +302,7 @@ export const testimonials = {
     {
       name: "Rohan Mehta",
       role: "Head of Growth, Fieldnote",
-      quote: "Rare to find a team that's equally sharp in Figma and in code. The handover docs alone saved us a month.",
+      quote: "Rare to find a team that’s equally sharp in Figma and in code. The handover docs alone saved us a month.",
       linkedin: "#",
     },
     {
@@ -414,11 +414,11 @@ export const faq = {
   items: [
     {
       q: "How long does a typical project take?",
-      a: "Most websites go live in 4–6 weeks. Brand identities take 3–4 weeks and apps 8–12, depending on scope. You'll get a dated timeline with your proposal.",
+      a: "Most websites go live in 4–6 weeks. Brand identities take 3–4 weeks and apps 8–12, depending on scope. You’ll get a dated timeline with your proposal.",
     },
     {
       q: "What do you need from me to get started?",
-      a: "A 30-minute intro call, any existing brand assets, and a rough idea of goals and budget. We'll turn that into a scoped proposal within 48 hours.",
+      a: "A 30-minute intro call, any existing brand assets, and a rough idea of goals and budget. We’ll turn that into a scoped proposal within 48 hours.",
     },
     {
       q: "Do you work with clients outside India?",
@@ -439,7 +439,7 @@ export const faq = {
   ],
   card: {
     title: "Book a 30-minute intro call",
-    body: "Talk through your idea with the founder. No pitch deck, no pressure, just a straight answer on whether we're a fit.",
+    body: "Talk through your idea with the founder. No pitch deck, no pressure, just a straight answer on whether we’re a fit.",
     cta: "Start a Project",
     whatsappLabel: "Prefer WhatsApp?",
   },
@@ -448,7 +448,7 @@ export const faq = {
 /* ───────── Footer ───────── */
 export const footer = {
   lineMuted: "Got an idea worth building?",
-  lineDark: "Let's lay the first zone.",
+  lineDark: "Let’s lay the first zone.",
   cta: "Contact us",
   // PLACEHOLDER — add your real profile URLs.
   socials: [

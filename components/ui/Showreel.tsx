@@ -23,7 +23,7 @@ export function Showreel({ src, poster, className, priority }: Props) {
   const caption = (
     <div
       data-reel-caption
-      className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-5 font-mono text-[11px] tracking-[0.08em] text-white/80 uppercase md:p-7 md:text-xs"
+      className="label-mono pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-5 text-[11px] text-white/80 md:p-7 md:text-label"
     >
       <span>ITBIZone · Showreel 2026</span>
       <span>01:24</span>

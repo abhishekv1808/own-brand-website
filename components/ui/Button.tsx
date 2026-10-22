@@ -35,7 +35,7 @@ export function Button({ href, children, variant = "primary", icon = true, magne
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
-        "group inline-flex h-[52px] items-center gap-3 rounded-pill pl-6 text-[15px] font-medium whitespace-nowrap transition-colors duration-300",
+        "group inline-flex h-[52px] items-center gap-3 rounded-pill pl-6 text-small font-medium tracking-[-0.005em] whitespace-nowrap transition-colors duration-300",
         icon ? "pr-1.5" : "pr-6",
         styles[variant],
         className,

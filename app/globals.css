@@ -48,15 +48,40 @@
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-  /* Type scale */
-  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  /* Type scale — fluid from 375px to 1440px. Tracking tightens as size grows
+     (Geist reads loose when large), line-height tightens with it. */
+  --text-display: clamp(2.625rem, 1.95rem + 2.9vw, 4.5rem); /* hero, footer — 42 → 72px */
   --text-display--line-height: 1.12;
   --text-display--letter-spacing: -0.05em;
-  --text-title: clamp(2.125rem, 1.5rem + 2.4vw, 3.5rem);
-  --text-title--line-height: 1.1;
-  --text-title--letter-spacing: -0.045em;
-  --text-lede: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-title: clamp(2.25rem, 1.65rem + 2.55vw, 3.875rem); /* section h2 — 36 → 62px */
+  --text-title--line-height: 1.06;
+  --text-title--letter-spacing: -0.048em;
+  --text-statement: clamp(1.625rem, 1.2rem + 1.8vw, 2.875rem); /* about paragraph — 26 → 46px */
+  --text-statement--line-height: 1.24;
+  --text-statement--letter-spacing: -0.035em;
+  --text-headline: clamp(1.875rem, 1.45rem + 1.8vw, 3.25rem); /* service rows — 30 → 52px */
+  --text-headline--line-height: 1.08;
+  --text-headline--letter-spacing: -0.045em;
+  --text-figure: clamp(2.75rem, 2.2rem + 2.35vw, 4.25rem); /* prices, stats — 44 → 68px */
+  --text-figure--line-height: 1;
+  --text-figure--letter-spacing: -0.05em;
+  --text-heading: clamp(1.5rem, 1.33rem + 0.7vw, 2rem); /* card / step h3 — 24 → 32px */
+  --text-heading--line-height: 1.15;
+  --text-heading--letter-spacing: -0.035em;
+  --text-subheading: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem); /* small h3 — 20 → 24px */
+  --text-subheading--line-height: 1.25;
+  --text-subheading--letter-spacing: -0.025em;
+  --text-lede: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem); /* intro copy — 18 → 20px */
   --text-lede--line-height: 1.55;
+  --text-lede--letter-spacing: -0.011em;
+  --text-body: 1.0625rem; /* descriptions, quotes — 17px */
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: -0.006em;
+  --text-small: 0.9375rem; /* meta, captions — 15px */
+  --text-small--line-height: 1.5;
+  --text-label: 0.75rem; /* mono labels — 12px */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
@@ -104,6 +129,20 @@
     background: var(--color-canvas);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures contextual;
+  }
+  /* Even out headline lines; avoid one-word last lines in copy. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  blockquote,
+  figcaption {
+    text-wrap: pretty;
   }
   ::selection {
     background: var(--color-accent);
@@ -146,12 +185,35 @@ html.lenis body {
     padding-block: clamp(88px, 6rem + 4vw, 160px);
   }
 
+  /* Section eyebrow: mono label with a small accent marker. */
   .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
     font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-accent);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 2px;
+    background: currentColor;
+  }
+
+  /* Small mono metadata (categories, durations, footer links). */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    font-weight: 500;
+    line-height: var(--text-label--line-height);
+    letter-spacing: var(--text-label--letter-spacing);
+    text-transform: uppercase;
   }
 
   /* Grain on dark slabs */

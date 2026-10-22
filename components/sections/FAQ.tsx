@@ -11,7 +11,7 @@ export function FAQ() {
     <section id="faq" aria-labelledby="faq-title" className="slab mx-2 bg-surface md:mx-4">
       <div className="container-x section-y">
         <Eyebrow>{faq.eyebrow}</Eyebrow>
-        <TwoToneHeading id="faq-title" lines={[`${faq.titleMuted} **${faq.titleDark}**`]} className="mt-4" />
+        <TwoToneHeading id="faq-title" lines={[`${faq.titleMuted} **${faq.titleDark}**`]} className="mt-5" />
 
         <div className="mt-14 grid gap-8 md:mt-20 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-7">
@@ -26,13 +26,13 @@ export function FAQ() {
                   <span className="absolute right-0.5 bottom-0.5 size-3.5 rounded-full border-2 border-white bg-emerald-500" aria-hidden />
                 </span>
                 <div>
-                  <p className="text-[17px] font-medium">{brand.founder}</p>
-                  <p className="text-sm text-muted">{brand.founderRole}</p>
+                  <p className="text-body font-medium">{brand.founder}</p>
+                  <p className="text-small text-muted">{brand.founderRole}</p>
                 </div>
               </div>
 
-              <h3 className="mt-8 text-[28px] leading-tight font-medium tracking-[-0.04em]">{faq.card.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-muted">{faq.card.body}</p>
+              <h3 className="mt-8 text-heading font-medium">{faq.card.title}</h3>
+              <p className="mt-3 text-body text-muted">{faq.card.body}</p>
 
               <div className="mt-8">
                 <Button href={brand.ctaHref} magnetic>
@@ -51,13 +51,11 @@ export function FAQ() {
                     <WhatsApp size={18} />
                   </span>
                   <span>
-                    <span className="block text-sm text-muted">{faq.card.whatsappLabel}</span>
-                    <span className="block font-medium">{brand.whatsapp}</span>
+                    <span className="block text-small text-muted">{faq.card.whatsappLabel}</span>
+                    <span className="block font-medium whitespace-nowrap tabular-nums">{brand.whatsapp}</span>
                   </span>
                 </span>
-                <span className="font-mono text-xs tracking-[0.06em] text-accent uppercase transition-transform duration-300 group-hover:translate-x-1">
-                  Chat →
-                </span>
+                <span className="label-mono text-accent transition-transform duration-300 group-hover:translate-x-1">Chat →</span>
               </a>
             </aside>
           </Reveal>

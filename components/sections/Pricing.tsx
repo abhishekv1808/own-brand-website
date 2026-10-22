@@ -29,7 +29,7 @@ function CurrencyToggle({ value, onChange }: { value: Currency; onChange: (c: Cu
           aria-checked={value === c}
           onClick={() => onChange(c)}
           className={cn(
-            "relative rounded-pill px-5 py-2 font-mono text-[13px] tracking-[0.06em] transition-colors duration-300",
+            "label-mono relative rounded-pill px-5 py-2.5 transition-colors duration-300",
             value === c ? "text-white" : "text-muted hover:text-ink",
           )}
         >
@@ -62,16 +62,14 @@ function PlanCard({ plan, currency }: { plan: Plan; currency: Currency }) {
       {dark && (
         <>
           <span aria-hidden className="pointer-events-none absolute -top-32 -right-24 size-80 rounded-full bg-accent/40 blur-[100px]" />
-          <span className="absolute top-7 -right-12 w-48 rotate-45 bg-gradient-to-r from-accent to-accent-2 py-1.5 text-center font-mono text-[11px] tracking-[0.1em] text-white uppercase shadow-cta">
+          <span className="label-mono absolute top-7 -right-12 w-48 rotate-45 bg-gradient-to-r from-accent to-accent-2 py-1.5 text-center text-[11px] tracking-[0.12em] text-white shadow-cta">
             Most popular
           </span>
         </>
       )}
 
-      <h3 className="relative text-2xl font-medium tracking-[-0.03em]">{plan.name}</h3>
-      <p className={cn("relative mt-3 max-w-[340px] text-[15px] leading-relaxed", dark ? "text-night-muted" : "text-muted")}>
-        {plan.blurb}
-      </p>
+      <h3 className="relative text-subheading font-medium">{plan.name}</h3>
+      <p className={cn("relative mt-3 max-w-[340px] text-small", dark ? "text-night-muted" : "text-muted")}>{plan.blurb}</p>
 
       <div className="relative mt-8 flex items-end gap-2">
         <span className="relative block overflow-hidden">
@@ -82,18 +80,18 @@ function PlanCard({ plan, currency }: { plan: Plan; currency: Currency }) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-100%", opacity: 0 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="block text-[clamp(2.75rem,2rem+2.5vw,3.75rem)] leading-none font-medium tracking-[-0.05em]"
+              className="block text-figure font-medium tabular-nums"
             >
               {amount}
             </motion.span>
           </AnimatePresence>
         </span>
-        <span className={cn("pb-1.5 text-[15px]", dark ? "text-night-muted" : "text-muted")}>{plan.period}</span>
+        <span className={cn("pb-1 text-small", dark ? "text-night-muted" : "text-muted")}>{plan.period}</span>
       </div>
 
       <ul className={cn("relative mt-8 flex flex-col gap-3.5 border-t pt-8", dark ? "border-night-line" : "border-line")}>
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-3 text-[15px]">
+          <li key={f} className="flex items-start gap-3 text-small">
             <span
               className={cn(
                 "mt-0.5 grid size-5 shrink-0 place-items-center rounded-full",
@@ -131,7 +129,7 @@ export function Pricing() {
       <div className="container-x relative">
         <div className="mx-auto flex max-w-[720px] flex-col items-center text-center">
           <Eyebrow>{pricing.eyebrow}</Eyebrow>
-          <TwoToneHeading id="pricing-title" lines={[pricing.titleMuted, `**${pricing.titleDark}**`]} className="mt-4" />
+          <TwoToneHeading id="pricing-title" lines={[pricing.titleMuted, `**${pricing.titleDark}**`]} className="mt-5" />
           <div className="mt-9">
             <CurrencyToggle value={currency} onChange={setCurrency} />
           </div>
@@ -142,7 +140,7 @@ export function Pricing() {
             <PlanCard key={plan.name} plan={plan} currency={currency} />
           ))}
         </RevealGroup>
-        <p className="mt-8 text-center text-sm text-muted">{pricing.note}</p>
+        <p className="mt-8 text-center text-small text-muted">{pricing.note}</p>
       </div>
     </section>
   );

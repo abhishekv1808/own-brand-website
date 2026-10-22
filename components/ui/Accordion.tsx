@@ -31,7 +31,7 @@ export function Accordion({ items, defaultOpen = 0 }: { items: readonly Item[]; 
                 aria-expanded={isOpen}
                 aria-controls={`${id}-a${i}`}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-6 rounded-[24px] px-6 py-5 text-left text-[17px] font-medium tracking-[-0.01em] md:px-7 md:py-6 md:text-lg"
+                className="flex w-full items-center justify-between gap-6 rounded-[24px] px-6 py-5 text-left text-body font-medium tracking-[-0.015em] md:px-7 md:py-6 md:text-lg"
               >
                 {item.q}
                 <span
@@ -56,7 +56,7 @@ export function Accordion({ items, defaultOpen = 0 }: { items: readonly Item[]; 
                   transition={{ duration: 0.5, ease: EASE }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-[60ch] px-6 pb-6 text-base leading-relaxed text-muted md:px-7 md:pb-7">{item.a}</p>
+                  <p className="max-w-[60ch] px-6 pb-6 text-body text-muted md:px-7 md:pb-7">{item.a}</p>
                 </motion.div>
               )}
             </AnimatePresence>

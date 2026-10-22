@@ -20,7 +20,7 @@ export function Footer() {
               {footer.cta}
             </Button>
           </Reveal>
-          <Reveal delay={0.1} className="mt-8 flex flex-col items-center gap-3 text-[15px] text-night-muted sm:flex-row sm:gap-8">
+          <Reveal delay={0.1} className="mt-8 flex flex-col items-center gap-3 text-small text-night-muted sm:flex-row sm:gap-8">
             <a href={`mailto:${brand.email}`} className="flex items-center gap-2 transition-colors hover:text-white">
               <Mail size={18} /> {brand.email}
             </a>
@@ -37,7 +37,7 @@ export function Footer() {
 
         <div className="mt-[clamp(80px,6rem+3vw,160px)] flex flex-col gap-8 border-t border-night-line pt-8 md:flex-row md:items-center md:justify-between">
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs tracking-[0.08em] uppercase">
+            <ul className="label-mono flex flex-wrap gap-x-6 gap-y-2">
               {nav.map((n) => (
                 <li key={n.id}>
                   <a href={`#${n.id}`} className="text-night-muted transition-colors hover:text-white">
@@ -47,7 +47,7 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-          <ul aria-label="Social links" className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs tracking-[0.08em] uppercase">
+          <ul aria-label="Social links" className="label-mono flex flex-wrap gap-x-6 gap-y-2">
             {footer.socials.map((s) => (
               <li key={s.label}>
                 <a href={s.href} className="text-white transition-colors hover:text-accent-2">
@@ -57,7 +57,7 @@ export function Footer() {
             ))}
           </ul>
         </div>
-        <p className="mt-6 flex flex-col gap-1 text-[13px] text-night-muted sm:flex-row sm:justify-between">
+        <p className="mt-6 flex flex-col gap-1 text-small text-night-muted sm:flex-row sm:justify-between">
           <span>
             © {new Date().getFullYear()} {brand.name}. Made zone by zone in {brand.city}.
           </span>

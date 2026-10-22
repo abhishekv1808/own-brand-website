@@ -12,6 +12,9 @@ import { Pill } from "@/components/ui/Pill";
 import { Reveal } from "@/components/ui/Reveal";
 import { TwoToneHeading } from "@/components/ui/TwoToneHeading";
 
+// Description column ends ~630px in; the preview sits 64px right of x.
+const PREVIEW_MIN_X = 580;
+
 export function Services() {
   const [active, setActive] = useState<number | null>(null);
   const [pointerInside, setPointerInside] = useState(false);
@@ -24,7 +27,7 @@ export function Services() {
     <section id="services" aria-labelledby="services-title" className="section-y">
       <div className="container-x">
         <Eyebrow>{services.eyebrow}</Eyebrow>
-        <TwoToneHeading id="services-title" lines={[`**${services.titleDark}**`, services.titleMuted]} className="mt-4 max-w-[760px]" />
+        <TwoToneHeading id="services-title" lines={[`**${services.titleDark}**`, services.titleMuted]} className="mt-5 max-w-[760px]" />
 
         <div className="relative mt-14 md:mt-20">
           <ul
@@ -37,7 +40,8 @@ export function Services() {
             }}
             onPointerMove={(e) => {
               const r = listRef.current!.getBoundingClientRect();
-              x.set(e.clientX - r.left);
+              // Keep the preview right of the expanded description so it never covers the copy.
+              x.set(Math.max(e.clientX - r.left, PREVIEW_MIN_X));
               y.set(e.clientY - r.top);
             }}
           >
@@ -55,11 +59,11 @@ export function Services() {
                     onClick={() => setActive(isActive ? null : i)}
                     className="group grid w-full grid-cols-[auto_1fr_auto] items-start gap-x-5 py-7 text-left md:grid-cols-[80px_1fr_auto] md:gap-x-8 md:py-9"
                   >
-                    <span className="pt-2 font-mono text-[13px] text-muted md:pt-4">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="label-mono pt-2 text-muted md:pt-5">{String(i + 1).padStart(2, "0")}</span>
                     <span>
                       <span
                         className={cn(
-                          "block text-[clamp(1.75rem,1.2rem+2.2vw,3.5rem)] leading-[1.1] font-medium tracking-[-0.045em] transition-[color,translate] duration-500 ease-out-expo",
+                          "block text-headline font-medium transition-[color,translate] duration-500 ease-out-expo",
                           dimmed ? "text-ink/25" : "text-ink",
                           isActive && "md:translate-x-3",
                         )}
@@ -76,10 +80,10 @@ export function Services() {
                             transition={{ duration: 0.5, ease: EASE }}
                             className="block overflow-hidden md:translate-x-3"
                           >
-                            <span className="block max-w-[520px] pt-4 text-[17px] leading-relaxed text-muted">{item.description}</span>
+                            <span className="block max-w-[520px] pt-4 text-body text-muted">{item.description}</span>
                             <span className="flex flex-wrap gap-2 pt-4">
                               {item.tags.map((t) => (
-                                <span key={t} className="rounded-pill bg-surface px-3 py-1 font-mono text-xs text-ink-soft">
+                                <span key={t} className="label-mono rounded-pill bg-surface px-3 py-1.5 text-[11px] text-ink-soft">
                                   {t}
                                 </span>
                               ))}
@@ -128,7 +132,7 @@ export function Services() {
         </div>
 
         <Reveal className="mt-14 flex flex-col gap-5 md:flex-row md:items-center md:gap-8">
-          <span className="relative flex items-center gap-3 text-[17px] font-medium text-ink">
+          <span className="relative flex items-center gap-3 text-body font-medium text-ink">
             {services.growthLabel}
             <HandArrow />
           </span>

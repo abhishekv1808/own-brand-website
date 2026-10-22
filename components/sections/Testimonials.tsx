@@ -19,7 +19,7 @@ function Card({ item, index }: { item: Item; index: number }) {
 
   return (
     <figure className="rounded-card bg-white p-7 shadow-soft">
-      <blockquote className="text-[17px] leading-relaxed text-ink">&ldquo;{item.quote}&rdquo;</blockquote>
+      <blockquote className="-indent-[0.42em] text-body text-ink">&ldquo;{item.quote}&rdquo;</blockquote>
       <figcaption className="mt-7 flex items-center gap-3.5">
         <span
           aria-hidden
@@ -31,7 +31,7 @@ function Card({ item, index }: { item: Item; index: number }) {
           {initials}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block text-[15px] font-medium">{item.name}</span>
+          <span className="block text-small font-medium">{item.name}</span>
           <span className="block truncate text-sm text-muted">{item.role}</span>
         </span>
         <a href={item.linkedin} aria-label={`${item.name} on LinkedIn`} className="text-[#0A66C2] transition-opacity hover:opacity-70">
@@ -69,7 +69,7 @@ export function Testimonials() {
       <div className="container-x section-y">
         <div className="mx-auto max-w-[720px] text-center">
           <Eyebrow>{testimonials.eyebrow}</Eyebrow>
-          <TwoToneHeading id="reviews-title" lines={[testimonials.titleMuted, `**${testimonials.titleDark}**`]} className="mt-4" />
+          <TwoToneHeading id="reviews-title" lines={[testimonials.titleMuted, `**${testimonials.titleDark}**`]} className="mt-5" />
         </div>
 
         <div className="mt-14 md:mt-20">
